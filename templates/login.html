@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block orxan %}
+      
+
+<br>
+<form method = 'post'>
+<div class="row form-group">
+    <div class="col-md-12">
+      {% csrf_token %}  
+      {{form|crispy}}
+      <br>
+      <input type="submit" value="Login" class="btn btn-sm btn-success">
+      <span><b>Hesabiniz yoxdursa buradan <a class="btn btn-sm btn-success"   href ="/user/register/">Qeydiyyatdan keçin </a></b></span>
+
+    </div>
+  </div>
+</form>
+
+
+{% endblock orxan %}

@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+
+{% block title %}
+<title>MY  Ftp</title>
+{% endblock title %}
+    
+
+
+
+{% block orxan %}
+
+
+    <H4>My Ftp Password</H4>
+    <br>
+    <br>
+
+
+    {% if myftp %}
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Host</th>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+            <th scope="col">Port</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+
+          
+          {% for my in myftp %}
+          <tr>
+            <td>{{my.host}}</td>
+            <td>{{my.username}}</td>
+            <td>{{my.password}}</td>
+            <td>{{my.port}}</td>
+            <td><a href="{% url 'service:editftp' my.id %}" class= "btn btn-sm btn-success">Edit</a></td>
+            <td><a href="{% url 'service:deleteftp' my.id%}" class = "btn btn-sm btn-success">Delete</a></td>
+        </tr>
+          {% endfor %}
+    {% else %}
+    <div class= 'alert alert-info'>
+        Ftp Parolunuz Yoxdur
+        </div>
+    {% endif %}
+
+{% endblock orxan %}
+    

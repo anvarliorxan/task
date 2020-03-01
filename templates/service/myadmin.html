@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+
+{% block title %}
+<title>MY  Ftp</title>
+{% endblock title %}
+    
+
+
+
+{% block orxan %}
+
+
+    <H4>My Admin Password</H4>
+    <br>
+    <br>
+
+
+    {% if myadmin %}
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Url</th>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+
+          
+          {% for my in myadmin %}
+          <tr>
+            <td>{{my.url}}</td>
+            <td>{{my.username}}</td>
+            <td>{{my.password}}</td>
+            <td><a href="{% url 'service:editadmin' my.id %}" class= "btn btn-sm btn-success">Edit</a></td>
+            <td><a href="{% url 'service:deleteadmin' my.id%}" class = "btn btn-sm btn-success">Delete</a></td>
+        </tr>
+          {% endfor %}
+    {% else %}
+    <div class= 'alert alert-info'>
+        Admin Parolunuz Yoxdur
+        </div>
+    {% endif %}
+
+{% endblock orxan %}
+    

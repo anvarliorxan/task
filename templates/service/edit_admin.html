@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block orxan %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+  <h2>Edit Admin Password</h2>
+  <form method ='post'>
+  {% csrf_token %}
+  {{form|crispy}}
+    
+    <button type="submit" class="btn btn-sm btn-success">Save</button>
+  </form>
+</div>
+
+{% endblock orxan %}

@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+
+{% block title %}
+<title>MY  Ftp</title>
+{% endblock title %}
+    
+
+
+
+{% block orxan %}
+
+
+    <H4>My Email Password</H4>
+    <br>
+    <br>
+
+
+    {% if myemail %}
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+
+          
+          {% for my in myemail %}
+          <tr>
+            <td>{{my.name}}</td>
+            <td>{{my.username}}</td>
+            <td>{{my.password}}</td>
+            <td><a href="{% url 'service:editemail' my.id %}" class= "btn btn-sm btn-success">Edit</a></td>
+            <td><a href="{% url 'service:deleteemail' my.id%}" class = "btn btn-sm btn-success">Delete</a></td>
+        </tr>
+          {% endfor %}
+    {% else %}
+    <div class= 'alert alert-info'>
+        Email Parolunuz Yoxdur
+        </div>
+    {% endif %}
+
+{% endblock orxan %}
+    
